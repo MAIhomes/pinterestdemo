@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Similar Images - Bathroom Design Inspiration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Similar Bathroom Designs</h1>
+        <p>Images similar to your selection</p>
+    </header>
+    
+    <nav>
+        <ul class="categories">
+            <li><a href="/" class="category-btn">Back to Home</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <div class="original-image" id="original-image">
+            <!-- Original image will be loaded here via JavaScript -->
+            <h2>Original Image</h2>
+            <div class="loading">Loading original image...</div>
+        </div>
+        
+        <h2>Similar Images</h2>
+        <div class="image-grid" id="image-grid">
+            <!-- Similar images will be loaded here via JavaScript -->
+            <div class="loading">Loading similar images...</div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Bathroom Design Inspiration - A Pinterest-style recommendation system</p>
+    </footer>
+    
+    <script>
+        // Store the image ID from the URL
+        const imageId = "{{ image_id }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/similar.js') }}"></script>
+</body>
+</html>

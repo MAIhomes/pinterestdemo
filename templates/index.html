@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bathroom Design Inspiration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Bathroom Design Inspiration</h1>
+        <p>Find inspiration for your bathroom renovation project</p>
+    </header>
+    
+    <nav>
+        <ul class="categories">
+            <li><a href="/" class="category-btn {% if category == 'all' %}active{% endif %}">All</a></li>
+            {% for cat in categories %}
+            <li><a href="/{{ cat }}" class="category-btn {% if category == cat %}active{% endif %}">{{ cat|replace('_', ' ')|title }}</a></li>
+            {% endfor %}
+            <li><a href="/for-you" class="category-btn for-you {% if category == 'for-you' %}active{% endif %}">For You</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <div class="image-grid" id="image-grid">
+            <!-- Images will be loaded here via JavaScript -->
+            <div class="loading">Loading images...</div>
+        </div>
+        
+        <div class="load-more">
+            <button id="load-more-btn">Load More</button>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Bathroom Design Inspiration - A Pinterest-style recommendation system</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
